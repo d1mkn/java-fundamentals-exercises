@@ -3,11 +3,8 @@ package com.bobocode.basics;
 import com.bobocode.data.Accounts;
 import com.bobocode.model.Account;
 import lombok.SneakyThrows;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
 import org.mockito.Mockito;
 
 import java.lang.reflect.Method;
@@ -25,6 +22,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class HeterogeneousMaxHolderTest {
     private HeterogeneousMaxHolder heterogeneousMaxHolder = new HeterogeneousMaxHolder();
     private HeterogeneousMaxHolder heterogeneousMaxHolderMock = Mockito.spy(HeterogeneousMaxHolder.class);
+
+    @AfterEach
+    void clear() {
+        HeterogeneousMaxHolder.clear();
+    }
 
     @Test
     @Order(1)
